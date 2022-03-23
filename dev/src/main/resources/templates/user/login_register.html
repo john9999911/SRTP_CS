@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>login</title>
     <script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-    <link href="../../static/css/login.css " rel= "stylesheet" >
+    <link href="../../static/css/login.css " rel="stylesheet">
     <script src="../../static/js/log.js" type="text/javascript"></script>
 </head>
 
@@ -14,18 +14,16 @@
     <div class="form-container sign-up-container">
         <form th:action="@{/user/register_completed}" method="post">
             <h1>注册</h1>
-
             <span>请输入您的信息</span>
-            <input type="text" id="idcard" name="idcard" placeholder="邮箱"
-                   onblur="validate_idcard(this.value)">
-
-            <input type="text" id="Username" name="username" placeholder="昵称"
-                   onblur="validate_username(this.value)">
-
-            <input type="password" id="Password" name="password" placeholder="以字母开头包含字母、数字的密码"
-                   onblur="validate_password(this.value)">
-            <input type="password" id="Password2" name="password2" onblur="validate_password2(this.value)" placeholder="确认密码">
-            <p style="color:red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+            <label for="Email"></label><input type="text" id="Email" name="mail" placeholder="邮箱"
+                                              onblur="validate_email(this.value)">
+            <label for="Username"></label><input type="text" id="Username" name="username" placeholder="昵称"
+                                                 onblur="validate_username(this.value)">
+            <label for="Password"></label><input type="password" id="Password" name="password" placeholder="包含字母、数字的密码"
+                                                 onblur="validate_password(this.value)">
+            <label for="Password2"></label><input type="password" id="Password2" name="password2" placeholder="确认密码"
+                                                  onblur="validate_password2(this.value)">
+            <p style="color:red" th:text="${r_msg}" th:if="${not #strings.isEmpty(r_msg)}"></p>
             <button>注册</button>
         </form>
     </div>
@@ -34,16 +32,16 @@
             <h1>登录</h1>
             <span>或使用您的帐号</span>
             <label>
-                <input type="text" name="mail" placeholder="邮箱" >
+                <input type="text" name="mail" placeholder="邮箱">
             </label>
             <label>
                 <input type="password" name="password" placeholder="密码">
             </label>
             <label>
-<!--                <input type="checkbox" name="remember" title="记住密码">-->
+                <!--                <input type="checkbox" name="remember" title="记住密码">-->
             </label>
             <a href="">忘记密码？</a>
-            <p style="color:red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+            <p style="color:red" th:text="${l_msg}" th:if="${not #strings.isEmpty(l_msg)}"></p>
             <button>登录</button>
         </form>
     </div>

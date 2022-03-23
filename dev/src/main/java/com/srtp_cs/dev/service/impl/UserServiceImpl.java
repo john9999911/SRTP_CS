@@ -20,18 +20,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> selectUserByName(String name) {
-        return userMapper.selectUserByName(name);
-    }
-
-    @Override
     public User selectUserByMail(String mail) {
         return userMapper.selectUserByMail(mail);
     }
 
     @Override
-    public void insertUser(User user) {
-        userMapper.insertUser(user);
+    public List<User> selectUserByName(String name) {
+        return userMapper.selectUserByName(name);
+    }
+
+    @Override
+    public List<User> selectAllUsers() {
+        return userMapper.selectAllUsers();
+    }
+
+    @Override
+    public void insertUser(String mail, String name, String pwd) {
+        userMapper.insertUser(mail, name, pwd);
     }
 
     @Override
@@ -44,23 +49,5 @@ public class UserServiceImpl implements UserService {
         userMapper.deleteUser(uid);
     }
 
-    @Override
-    public Boolean login(String mail, String password) {
-        User user = userMapper.selectUserByMail(mail);
-        if (user == null) {
-            return false;
-        } else {
-            return user.getPwd().equals(password);
-        }
-    }
 
-    @Override
-    public boolean register(User user) {
-        if (userMapper.selectUserByMail(user.getMail()) != null) {
-            return false;
-        } else {
-            userMapper.insertUser(user);
-            return true;
-        }
-    }
 }

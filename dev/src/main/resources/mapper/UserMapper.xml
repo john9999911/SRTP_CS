@@ -6,9 +6,9 @@
 
     <resultMap id="UserMapper" type="com.srtp_cs.dev.entity.User">
         <id property="uid" column="uid"/>
+        <result property="mail" column="mail"/>
         <result property="name" column="name"/>
         <result property="pwd" column="pwd"/>
-        <result property="mail" column="mail"/>
     </resultMap>
 
 
@@ -20,20 +20,20 @@
         SELECT * FROM cs_user WHERE mail = #{mail}
     </select>
 
-    <select id="selectUserByName" resultType="java.util.List">
+    <select id="selectUserByName" resultType="com.srtp_cs.dev.entity.User">
         SELECT * FROM cs_user WHERE name = #{name}
     </select>
 
-    <select id="selectAllUsers" resultType="java.util.List">
+    <select id="selectAllUsers" resultType="com.srtp_cs.dev.entity.User">
         SELECT * FROM cs_user
     </select>
 
     <insert id="insertUser">
-        INSERT INTO cs_user(name, pwd, mail) VALUES(#{name}, #{pwd}, #{mail})
+        INSERT INTO cs_user(mail, name, pwd) VALUES(#{mail}, #{name}, #{pwd})
     </insert>
 
     <update id="updateUser">
-        UPDATE cs_user SET name = #{name}, pwd = #{pwd}, mail = #{mail} WHERE uid = #{uid}
+        UPDATE cs_user SET mail = #{mail}, name = #{name}, pwd = #{pwd} WHERE uid = #{uid}
     </update>
 
     <delete id="deleteUser">

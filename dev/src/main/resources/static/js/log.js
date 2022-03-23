@@ -12,10 +12,10 @@
 //
 //    }
 //修改为验证邮箱格式，但名字未作修改
-    function validate_idcard(idcard) {
+    function validate_email(email) {
         var idcardReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
 
-        if (idcard != "" && idcard.search(idcardReg) != -1) {
+        if (email !== "" && email.search(idcardReg) !== -1) {
             document.getElementById("test_idcard").innerHTML = "<font color='green' size='3px'>√邮箱格式正确</font>";
         }else {
             document.getElementById("test_idcard").innerHTML = "<font color='red' size='3px'>邮箱不能为空</font>";
@@ -23,22 +23,22 @@
 
     }
 
-//    function checkEmail(){undefined
-//    　　var myforms=document.forms;
-//    　　var myemail=myforms[0].email.value;
-//    　　var myReg=/^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
-//
-//    　　if(myReg.test(myemail)){undefined
-//    　　　　return true;
-//    　　}else{undefined
-//    　　　　myspan.innerText="邮箱格式不对!";
-//    　　　　return false;
-//    }
+   // function checkEmail(){undefined
+   // 　　var myforms=document.forms;
+   // 　　var myemail=myforms[0].email.value;
+   // 　　var myReg=/^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+   //
+   // 　　if(myReg.test(myemail)){undefined
+   // 　　　　return true;
+   // 　　}else{undefined
+   // 　　　　myspan.innerText="邮箱格式不对!";
+   // 　　　　return false;
+   // }
 
     //函数1：验证用户名格式
     function validate_username(username) {
 
-        if (username != "") {
+        if (username !== "") {
             document.getElementById("test_user").innerHTML = "<font color='green' size='3px'>√用户名正确</font>";
         } else {
             document.getElementById("test_user").innerHTML = "<font color='red' size='3px'>用户名错误</font>";
@@ -49,7 +49,7 @@
     function validate_password(password) {
         //^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6-10}$
         var passwordReg = /^[a-zA-Z]\w{5,17}$/;
-        if (password != "" && password.search(passwordReg) != -1) {
+        if (password !== "" && password.search(passwordReg) !== -1) {
             document.getElementById("test_pw").innerHTML = "<font color='green' size='3px'>√密码格式正确</font>";
         } else {
             document.getElementById("test_pw").innerHTML = "<font color='red' size='3px'>亲，您输入的密码格式有误哦</font>";
@@ -62,9 +62,9 @@
         var password = document.getElementById("password").value;
         //测试：console.log(password);
         //测试：console.log(password2);
-        if (password == "") {
+        if (password === "") {
             document.getElementById("is_test_pw").innerHTML = "<font color='red' size='3px'>密码不为空</font>";
-        } else if (password == password2) {
+        } else if (password === password2) {
             document.getElementById("is_test_pw").innerHTML = "<font color='green' size='3px'>√两次输入的密码相同</font>";
         } else {
             document.getElementById("is_test_pw").innerHTML = "<font color='red' size='3px'>两次输入的密码不相同</font>";

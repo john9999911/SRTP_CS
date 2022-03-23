@@ -17,15 +17,12 @@ public interface UserService {
     User selectUserByMail(String mail);
 
 
-//    Collection<User> selectAllUsers();
+    List<User> selectAllUsers();
 //
-    void insertUser(User user);
+    void insertUser(String mail, String name, String password);
 //
     void updateUser(User user);
 //
     void deleteUser(int uid);
 
-    Boolean login(String mail, String password);
-
-    boolean register(User user);
 }
