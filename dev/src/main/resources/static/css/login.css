@@ -182,3 +182,16 @@
         .dowebok.right-panel-active .overlay-right {
             transform:translateY(20%);
         }
+        #reme_input {
+        position:relative;
+        right: 32px;
+        }
+        #reme_z {
+        position:relative;
+        top: -26px;
+        left: 7px;
+        }
+        #wjmm{
+        position:relative;
+        top:-20px;
+        }
