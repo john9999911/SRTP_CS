@@ -1,6 +1,5 @@
 package com.srtp_cs.dev.controller.User;
 
-import com.srtp_cs.dev.entity.User;
 import com.srtp_cs.dev.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
