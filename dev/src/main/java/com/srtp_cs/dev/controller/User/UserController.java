@@ -17,7 +17,7 @@ public class UserController {
 
     @RequestMapping("/toLogin")
     public String login() {
-        return "/user/login_register";
+        return "/user/login";
     }
 
     //登录
@@ -36,7 +36,7 @@ public class UserController {
             session.setAttribute("loginUser", userService.selectUserByMail(mail).getName());
             return "redirect:/index";
         }
-        return "/user/login_register";
+        return "/user/login";
     }
 
     //注册, 输入验证未完成
@@ -51,20 +51,24 @@ public class UserController {
     ) {
         if (mail.equals("") || name.equals("") || password.equals("")) {
             model.addAttribute("r_msg", "请填写完整");
+            return "/user/register";
         } else if(!mail.matches("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")){
             model.addAttribute("r_msg", "邮箱格式错误");
+            return "/user/register";
         } else if (!password.matches("^(?=.*[a-zA-Z])(?=.*\\d).{1,9}$") || !password2.matches("^(?=.*[a-zA-Z])(?=.*\\d).{1,9}$")) {
             model.addAttribute("r_msg", "密码格式错误");
+            return "/user/register";
         } else if(!password.equals(password2)){
             model.addAttribute("r_msg", "两次密码不一致");
+            return "/user/register";
         } else if (userService.selectUserByMail(mail) != null) {
             model.addAttribute("r_msg", "用户已存在，请直接登录");
+            return "/user/register";
         } else {
             userService.insertUser(mail, name, password);
             session.setAttribute("loginUser", name);
             return "redirect:/index";
         }
-        return "/user/login_register";
     }
 
     @RequestMapping("toLogout")

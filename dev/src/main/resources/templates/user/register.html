@@ -10,7 +10,7 @@
 
 
 <body>
-<div class="dowebok" id="dowebok">
+<div class="dowebok right-panel-active" id="dowebok">
     <div class="form-container sign-up-container">
         <form th:action="@{/user/register_completed}" method="post">
             <h1>注册</h1>
@@ -42,7 +42,7 @@
                 <div id="reme_z">记住我</div>
             </label>
             <a href="" id="wjmm">忘记密码？</a>
-            <p style="color:red" th:text="${l_msg}" th:if="${not #strings.isEmpty(l_msg)}"></p>
+<!--            <p style="color:red" th:text="${l_msg}" th:if="${not #strings.isEmpty(l_msg)}"></p>-->
             <button>登录</button>
         </form>
     </div>
