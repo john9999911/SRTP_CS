@@ -38,10 +38,10 @@
                 <input type="password" name="password" placeholder="密码">
             </label>
             <label>
-                <input type="checkbox" name="remember-me">记住我
+                <input id="reme_input" type="checkbox" name="remember-me">
+                <div id="reme_z">记住我</div>
             </label>
-
-            <a href="">忘记密码？</a>
+            <a href="" id="wjmm">忘记密码？</a>
             <p style="color:red" th:text="${l_msg}" th:if="${not #strings.isEmpty(l_msg)}">
             <button>登录</button>
         </form>
