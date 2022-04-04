@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
     @Autowired
     private UserService userService;
 
@@ -30,7 +31,7 @@ public class UserController {
     ) {
         if (userService.selectUserByMail(mail) == null) {
             model.addAttribute("l_msg", "用户不存在");
-        } else if (!userService.selectUserByMail(mail).getPwd().equals(password)) {
+        } else if (!(userService.selectUserByMail(mail).getPwd()).equals(userService.encryptPassword(password))) {
             model.addAttribute("l_msg", "密码错误");
         } else {
             session.setAttribute("loginUser", userService.selectUserByMail(mail).getName());
@@ -39,7 +40,7 @@ public class UserController {
         return "/user/login";
     }
 
-    //注册, 输入验证未完成
+    //注册, 输入验证
     @RequestMapping("register_completed")
     public String Register(
             @RequestParam("mail") String mail,
@@ -65,6 +66,7 @@ public class UserController {
             model.addAttribute("r_msg", "用户已存在，请直接登录");
             return "/user/register";
         } else {
+            password = userService.encryptPassword(password);
             userService.insertUser(mail, name, password);
             session.setAttribute("loginUser", name);
             return "redirect:/index";

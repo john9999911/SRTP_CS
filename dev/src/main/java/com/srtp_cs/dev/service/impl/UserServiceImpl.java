@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.alibaba.druid.util.Utils.md5;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -49,5 +51,8 @@ public class UserServiceImpl implements UserService {
         userMapper.deleteUser(uid);
     }
 
-
+    @Override
+    public String encryptPassword(String password) {
+        return md5(password);
+    }
 }

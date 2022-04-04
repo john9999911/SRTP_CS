@@ -25,4 +25,5 @@ public interface UserService {
 //
     void deleteUser(int uid);
 
+    String encryptPassword(String password);
 }
