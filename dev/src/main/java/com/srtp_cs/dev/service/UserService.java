@@ -1,13 +1,10 @@
 package com.srtp_cs.dev.service;
-//
 
 import com.srtp_cs.dev.entity.User;
 
 import java.util.List;
 
-//
-//import java.util.Collection;
-//
+
 public interface UserService {
 
     User selectUserByUid(int uid);
@@ -15,7 +12,6 @@ public interface UserService {
     List<User> selectUserByName(String name);
 
     User selectUserByMail(String mail);
-
 
     List<User> selectAllUsers();
 //

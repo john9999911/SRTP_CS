@@ -44,8 +44,6 @@ public class PreprocessingTool {
      * 英文分词
      * 用 非字符 进行分词，分词后每个单词开头的大写会变小写
      */
-
-
     public static List<String> enTokenize(String source) {
         ArrayList<String> tokens = new ArrayList<>();
         StringBuilder buffer = new StringBuilder();
