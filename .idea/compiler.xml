@@ -10,8 +10,9 @@
         <module name="dev" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="dev" target="1.8" />
+    <bytecodeTargetLevel target="11">
+      <module name="dev" target="11" />
+      <module name="SRTP_CS" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

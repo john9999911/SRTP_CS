@@ -14,7 +14,7 @@
     <name>dev</name>
     <description>dev</description>
     <properties>
-        <java.version>16</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -69,7 +69,7 @@
         <dependency>
             <groupId>com.google.googlejavaformat</groupId>
             <artifactId>google-java-format</artifactId>
-            <version>1.9</version>
+            <version>1.15.0</version>
         </dependency>
 
 
