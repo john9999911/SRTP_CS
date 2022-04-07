@@ -50,8 +50,8 @@ public class JythonTool {
         pyFunction = interpreter.get(functionName, PyFunction.class);
     }
     void init(){
-//        moduleUrl = "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\model_code\\my_jython.py";
-        moduleUrl = "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\model_code\\my_model.py";
+        moduleUrl = "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\model_code\\my_jython.py";
+//        moduleUrl = "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\model_code\\my_model.py";
 
         pythonHome = "E:\\Program Files (x86)\\Anaconda";
         pythonPath = "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\venv\\Lib\\site-packages";

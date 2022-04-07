@@ -11,35 +11,40 @@
 <div id="mainContentDiv">
 
     <div class="mainDivMainImgDiv" style="">
-        <div class="headLeftDiv headLeftDivFont">搜索结果</div>
+        <form th:action="@{result}" method="get">
 
-        <div class="headRightDiv">
+            <div class="headLeftDiv headLeftDivFont">搜索结果</div>
 
-            <div class="layui-form">
-                <form th:action="@{result}" method="get">
+            <div class="headRightDiv">
+
+                <div class="layui-form">
+
 
                     <div class="layui-input-inline">
                         <label for="conditionInput">
-                            <input type="text" class="layui-input" name="conditionInput" id="conditionInput"
-                                   th:value="${search}">
+                            <input type="text" class="layui-input" name="searchText" id="conditionInput"
+                                   th:value="${searchText}">
                         </label>
                     </div>
                     <input type="submit" id="reloadBtn" class="layui-btn" data-type="reload" value="Search">
-                </form>
+
+
+                </div>
 
             </div>
 
-        </div>
-
-        <div class="link-top"></div>
-        <div class="headLineBlowDiv">
-            <div class="headLeftDiv">
-                选择<span>3</span>条搜索结果
+            <div class="link-top"></div>
+            <div class="headLineBlowDiv">
+                <div class="headLeftDiv">
+                    选择
+                    <select name="searchNum">
+                        <option  th:each="i:${#numbers.sequence(1, 5)}" th:text="${i}" th:value="${i}" th:selected="${i==selectedNum}"></option>
+                    </select>
+                    条搜索结果
+                </div>
             </div>
 
-        </div>
-
-
+        </form>
     </div>
 
     <div class="mainDivMainInfoiv">
@@ -51,11 +56,11 @@
 
                 <div class="mainDivMainInfoiv_HeadTextDiv ">
                     <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey">
-                        {结果主题?}
+                        [['可信度：' + ${result[1]}]]
                     </div>
                 </div>
 
-                <div class="mainDivMainInfoiv_mainTextDiv  findKey" th:text="${result.toString()}">
+                <div class="mainDivMainInfoiv_mainTextDiv  findKey" th:text="'(搜索结果)' + ${result[0]}">
                     第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所
                     第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所
                 </div>
@@ -65,45 +70,6 @@
                 </div>
             </div>
 
-            <!--            <div class="mainDIvMainInfoDivSubInfoDiv">-->
-
-            <!--                <div class="mainDivMainInfoiv_HeadTextDiv ">-->
-            <!--                    <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey">-->
-            <!--                        神经网络基础用法讲解-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                <div class="mainDivMainInfoiv_mainTextDiv  findKey">-->
-            <!--                    这是第二条结果<p>-->
-            <!--                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所-->
-            <!--                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所-->
-
-            <!--                </div>-->
-
-            <!--                <div class="InfoDiv_Right_2 rightFlexFont">-->
-            <!--                    2020-02-12 18:41:11-->
-            <!--                </div>-->
-            <!--            </div>-->
-
-            <!--            <div class="mainDIvMainInfoDivSubInfoDiv">-->
-
-            <!--                <div class="mainDivMainInfoiv_HeadTextDiv ">-->
-            <!--                    <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey">-->
-            <!--                        神经网络基础用法讲解-->
-            <!--                    </div>-->
-            <!--                </div>-->
-
-            <!--                <div class="mainDivMainInfoiv_mainTextDiv  findKey">-->
-            <!--                    这是第三条结果<p>-->
-            <!--                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所-->
-            <!--                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所-->
-
-            <!--                </div>-->
-
-            <!--                <div class="InfoDiv_Right_2 rightFlexFont">-->
-            <!--                    2020-02-12 18:41:11-->
-            <!--                </div>-->
-            <!--            </div>-->
         </div>
     </div>
 </div>
