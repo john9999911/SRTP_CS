@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.srtp_cs.dev.mapper.CodeMapper">
+    <resultMap id="CodeMapper" type="com.srtp_cs.dev.entity.Code">
+        <id property="cid" column="cid"/>
+        <result property="rcode" column="rcode"/>
+        <result property="pcode" column="pcode"/>
+        <result property="source_url" column="source_url"/>
+        <result property="type" column="type"/>
+    </resultMap>
+
+    <insert id="insertCode">
+        INSERT INTO cs_code (rcode, pcode, source_url, type)
+        VALUES (#{rcode}, #{pcode}, #{source_url}, #{type})
+    </insert>
+
+    <update id="updateCode">
+        UPDATE cs_code
+        SET rcode = #{rcode}, pcode = #{pcode}, source_url = #{source_url}, type = #{type}
+        WHERE cid = #{cid}
+    </update>
+
+    <delete id="deleteCode">
+        DELETE FROM cs_code
+        WHERE cid = #{cid}
+    </delete>
+
+    <select id="getCodeById" resultType="com.srtp_cs.dev.entity.Code">
+        SELECT * FROM cs_code WHERE cid = #{cid}
+    </select>
+
+    <select id="getCodeByType" resultType="com.srtp_cs.dev.entity.Code">
+        SELECT * FROM cs_code WHERE type = #{type}
+    </select>
+
+    <select id="getAllCode" resultType="com.srtp_cs.dev.entity.Code">
+        SELECT * FROM cs_code
+    </select>
+
+
+</mapper>
