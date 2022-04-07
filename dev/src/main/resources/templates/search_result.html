@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>search_result</title>
@@ -15,13 +15,18 @@
 
         <div class="headRightDiv">
 
-            <div class="layui-form-item">
+            <div class="layui-form">
+                <form th:action="@{result}" method="get">
 
+                    <div class="layui-input-inline">
+                        <label for="conditionInput">
+                            <input type="text" class="layui-input" name="conditionInput" id="conditionInput"
+                                   th:value="${search}">
+                        </label>
+                    </div>
+                    <input type="submit" id="reloadBtn" class="layui-btn" data-type="reload" value="Search">
+                </form>
 
-                <div class="layui-input-inline">
-                    <input class="layui-input" name="conditionInput" id="conditionInput" autocomplete="off">
-                </div>
-                <button id="reloadBtn" class="layui-btn" data-type="reload">Search</button>
             </div>
 
         </div>
@@ -29,7 +34,7 @@
         <div class="link-top"></div>
         <div class="headLineBlowDiv">
             <div class="headLeftDiv">
-                选择搜索<span></span>条结果
+                选择<span>3</span>条搜索结果
             </div>
 
         </div>
@@ -42,19 +47,17 @@
 
         <div class="mainInfoSubDiv">
 
-            <div class="mainDIvMainInfoDivSubInfoDiv">
+            <div class="mainDIvMainInfoDivSubInfoDiv" th:each="result:${results}">
 
                 <div class="mainDivMainInfoiv_HeadTextDiv ">
                     <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey">
-                        神经网络基础用法讲解
+                        {结果主题?}
                     </div>
                 </div>
 
-                <div class="mainDivMainInfoiv_mainTextDiv  findKey">
-                    这是第一条结果啦啦啦啦
+                <div class="mainDivMainInfoiv_mainTextDiv  findKey" th:text="${result.toString()}">
                     第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所
                     第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所
-
                 </div>
 
                 <div class="InfoDiv_Right_2 rightFlexFont">
@@ -62,44 +65,45 @@
                 </div>
             </div>
 
-            <div class="mainDIvMainInfoDivSubInfoDiv">
+            <!--            <div class="mainDIvMainInfoDivSubInfoDiv">-->
 
-                <div class="mainDivMainInfoiv_HeadTextDiv ">
-                    <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey">
-                        神经网络基础用法讲解
-                    </div>
-                </div>
+            <!--                <div class="mainDivMainInfoiv_HeadTextDiv ">-->
+            <!--                    <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey">-->
+            <!--                        神经网络基础用法讲解-->
+            <!--                    </div>-->
+            <!--                </div>-->
 
-                <div class="mainDivMainInfoiv_mainTextDiv  findKey">
-                    这是第二条结果
-                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所
-                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所
+            <!--                <div class="mainDivMainInfoiv_mainTextDiv  findKey">-->
+            <!--                    这是第二条结果<p>-->
+            <!--                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所-->
+            <!--                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所-->
 
-                </div>
+            <!--                </div>-->
 
-                <div class="InfoDiv_Right_2 rightFlexFont">
-                    2020-02-12 18:41:11
-                </div>
-            </div>
+            <!--                <div class="InfoDiv_Right_2 rightFlexFont">-->
+            <!--                    2020-02-12 18:41:11-->
+            <!--                </div>-->
+            <!--            </div>-->
 
-            <div class="mainDIvMainInfoDivSubInfoDiv">
+            <!--            <div class="mainDIvMainInfoDivSubInfoDiv">-->
 
-                <div class="mainDivMainInfoiv_HeadTextDiv ">
-                    <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey">
-                        神经网络基础用法讲解
-                    </div>
-                </div>
+            <!--                <div class="mainDivMainInfoiv_HeadTextDiv ">-->
+            <!--                    <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey">-->
+            <!--                        神经网络基础用法讲解-->
+            <!--                    </div>-->
+            <!--                </div>-->
 
-                <div class="mainDivMainInfoiv_mainTextDiv  findKey">
-                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所
-                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所
+            <!--                <div class="mainDivMainInfoiv_mainTextDiv  findKey">-->
+            <!--                    这是第三条结果<p>-->
+            <!--                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所-->
+            <!--                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所-->
 
-                </div>
+            <!--                </div>-->
 
-                <div class="InfoDiv_Right_2 rightFlexFont">
-                    2020-02-12 18:41:11
-                </div>
-            </div>
+            <!--                <div class="InfoDiv_Right_2 rightFlexFont">-->
+            <!--                    2020-02-12 18:41:11-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
     </div>
 </div>

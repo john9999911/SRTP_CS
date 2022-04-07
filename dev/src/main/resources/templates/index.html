@@ -18,7 +18,8 @@
 <body>
 <nav>
     <ul>
-        <li><a th:href="@{/user/toLogin}" th:text="${#strings.isEmpty(session.loginUser)}?'登录':${session.loginUser}"></a></li>
+        <li><a th:href="@{/user/toLogin}"
+               th:text="${#strings.isEmpty(session.loginUser)}?'登录':${session.loginUser}"></a></li>
     </ul>
 </nav>
 
@@ -26,7 +27,7 @@
 <div class="search">
     <i> </i>
     <div class="s-bar">
-        <form>
+        <form th:action="@{result}" method="get">
             <input type="text" value="Search code" onfocus="this.value = '';"
                    onblur="if (this.value === '') {this.value = 'Search code';}">
             <input type="submit" value="Search"/>
