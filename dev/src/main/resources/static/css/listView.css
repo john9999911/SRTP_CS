@@ -163,7 +163,17 @@ body {
     height: 30%;
     background: rgba(0, 0, 0, 0);
 }
+#reloadBtn {
+position:relative;
 
+
+
+}
+#conditionInput {
+position:relative;
+width:200%;
+right:180px;
+}
 
 
 
