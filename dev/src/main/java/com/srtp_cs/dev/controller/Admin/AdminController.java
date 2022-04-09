@@ -17,7 +17,7 @@ public class AdminController {
     @ResponseBody
     public String addCode() {
         try {
-            codeService.insertCodeByFile("D:\\ChenGe\\Codefiles\\Java\\SRTP_CS\\dev\\src\\main\\java\\com\\srtp_cs\\dev\\service\\CodeService.java", "java");
+            codeService.insertCodeByFile("D:\\ChenGe\\Personal\\工作区\\SRTP\\d.code\\DeepCom\\test_source.txt", "java");
             return "succeed!";
         } catch (Exception e) {
             e.printStackTrace();

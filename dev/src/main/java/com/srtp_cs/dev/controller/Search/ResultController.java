@@ -18,6 +18,16 @@ public class ResultController {
             @RequestParam("searchText")String searchText,
             @RequestParam("searchNum")int num
     ) {
+        System.out.println("searchText: " + searchText);
+        //searchText 不能包含中文
+        for (int i = 0; i < searchText.length(); i++) {
+            if (searchText.substring(i,i+1).matches("[\u4e00-\u9fa5]")) {
+                model.addAttribute("msg", "搜索词不能包含中文");
+                System.out.println("搜索词不能包含中文");
+                return "redirect:/" ;
+            }
+        }
+
         model.addAttribute("searchText", searchText);
         model.addAttribute("selectedNum", num);
 

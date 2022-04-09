@@ -3,6 +3,7 @@ package com.srtp_cs.dev.common;
 import org.python.core.*;
 import org.python.util.PythonInterpreter;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Properties;
 
@@ -53,6 +54,7 @@ public class JythonTool {
         moduleUrl = "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\model_code\\my_jython.py";
 //        moduleUrl = "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\model_code\\my_model.py";
 
+
         pythonHome = "E:\\Program Files (x86)\\Anaconda";
         pythonPath = "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\venv\\Lib\\site-packages";
         codePath = "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\model_code";
@@ -62,7 +64,8 @@ public class JythonTool {
     }
 
     public List<List<String>> callJython(String query, int numOfReturns) {
-        PyObject pyResults = pyFunction.__call__(new PyString(query), new PyInteger(numOfReturns));
+        PyString strJson=Py.newStringOrUnicode(query);
+        PyObject pyResults = pyFunction.__call__(strJson, new PyInteger(numOfReturns));
         List<List<String>> Returns;
         Returns = (List<List<String>>) pyResults;
         return Returns;

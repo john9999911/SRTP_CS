@@ -52,7 +52,11 @@ public class CodeServiceImpl implements CodeService {
             e.printStackTrace();
         }
 
+        int i = 10;
         for (String rcode : rcodeList) {
+            if(i-- == 0) {
+                break;
+            }
             String pcode = enTokenizeStopStem(rcode);
             try {
                 codeMapper.insertCode(rcode, pcode, url, type);

@@ -25,6 +25,7 @@
 
 <!--search start here-->
 <div class="search">
+    <p th:text="${#strings.isEmpty(msg)}? null: ${msg}" style="color: #FF0000">[[${error}]]</p>
     <i> </i>
     <div class="s-bar">
         <form th:action="@{result}" method="get">
@@ -38,7 +39,7 @@
 </div>
 <!--search end here-->
 <div class="copyright">
-    <p>2022 &Code Search engine developed by Jichen Li,Lang Yuan and Xueting Sun,whose code in
+    <p>2022 &Code Search engine developed by Jichen Li,Lang Yuan and Xueting Sun,whose codes are in
         <a href="https://github.com/john9999911/cc_cs.git" target="_blank">GitHub </a></p>
 </div>
 </body>

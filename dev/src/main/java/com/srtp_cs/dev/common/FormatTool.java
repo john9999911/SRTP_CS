@@ -22,6 +22,7 @@ public class FormatTool {
     public static void main(String[] args) throws FormatterException {
         FormatTool formatTool = new FormatTool();
         String source = "public class FormatTool { public static void main(String[] args) { System.out.println(\"Hello World!\");}}";
+        System.out.println(source + "\n");
         String formattedSource = formatTool.format(source);
         System.out.println(formattedSource);
     }
