@@ -24,7 +24,7 @@ public class ResultController {
             if (searchText.substring(i,i+1).matches("[\u4e00-\u9fa5]")) {
                 model.addAttribute("msg", "搜索词不能包含中文");
                 System.out.println("搜索词不能包含中文");
-                return "redirect:/" ;
+                return "/index" ;
             }
         }
 

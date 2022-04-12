@@ -25,7 +25,7 @@
 
 <!--search start here-->
 <div class="search">
-    <p th:text="${#strings.isEmpty(msg)}? null: ${msg}" style="color: #FF0000">[[${error}]]</p>
+    <p th:text="${#strings.isEmpty(msg)}? null: ${msg}" style="color: #FF0000">[[${msg}]]</p>
     <i> </i>
     <div class="s-bar">
         <form th:action="@{result}" method="get">
