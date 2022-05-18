@@ -55,19 +55,21 @@
         <div class="mainInfoSubDiv">
 
             <div class="mainDIvMainInfoDivSubInfoDiv" th:each="result:${results}">
-
-                <div class="mainDivMainInfoiv_HeadTextDiv ">
-                    <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey" th:text="'可信度：' + ${result.getSim()}">
+                <a th:href="@{'/result_detail/' + ${resultStat.index}}">
+                    <div class="mainDivMainInfoiv_HeadTextDiv ">
+                        <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey"
+                             th:text="'可信度：' + ${result.getSim()}">
+                        </div>
                     </div>
-                </div>
 
-                <div class="mainDivMainInfoiv_mainTextDiv  findKey" style="white-space: pre-wrap"
-                     th:text="${result.getCode()}">
+                    <div class="mainDivMainInfoiv_mainTextDiv  findKey" style="white-space: pre-wrap"
+                         th:text="${result.getCode()}">
 
-                </div>
+                    </div>
 
-                <div class="InfoDiv_Right_2 rightFlexFont" th:text="${'相似度：' + result.getSim()}">
-                </div>
+                    <div class="InfoDiv_Right_2 rightFlexFont" th:text="${'相似度：' + result.getSim()}">
+                    </div>
+                </a>
             </div>
 
         </div>
