@@ -43,11 +43,14 @@ public class ResultController {
         return "search_result";
     }
 
-    @RequestMapping("/result_detail/{resultId}")
+    @RequestMapping("/result_detail/{resultId}/{searchText}")
     public String result_detail(
             Model model,
-            @PathVariable int resultId) {
+            @PathVariable int resultId,
+            @PathVariable String searchText
+    ) {
         model.addAttribute("result", results.get(resultId));
+        model.addAttribute("searchText", searchText);
         return "search_result_detail";
     }
 
