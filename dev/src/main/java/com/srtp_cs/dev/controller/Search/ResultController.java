@@ -9,12 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 
 @Controller
 
 public class ResultController {
     SearchService searchService = new SearchServiceImpl();
+    ArrayList<OneResult> results;
 
     @RequestMapping("/result")
     public String result(
@@ -35,10 +37,18 @@ public class ResultController {
         model.addAttribute("searchText", searchText);
         model.addAttribute("selectedNum", num);
 
-
-        ArrayList<OneResult> results = searchService.search(searchText, num);
-
+        results = searchService.search(searchText, num);
         model.addAttribute("results", results);
         return "search_result";
     }
+
+    @RequestMapping("/result_detail")
+    public String result_detail(
+            Model model,
+            @PathParam("resultId") int resultId
+    ) {
+        model.addAttribute("result", results.get(resultId));
+        return "search_result_detail";
+    }
+
 }
