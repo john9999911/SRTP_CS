@@ -7,48 +7,14 @@
     <link rel="stylesheet" href="../static/css/layui.css">
     <link href="../static/css/styleforresult.css " rel="stylesheet"/>
 </head>
-<body >
+<body>
 <i></i>
 <a style="color:blue;position:relative;left:650px;top:0px;font-size:25px;">Code-Search</a>
-<a style="color:#2f4056;font-family:微软雅黑;font-size:20px;position:relative;top:30px;left:0px">代码详情</a>
-<div id="returnbtn"><input type="submit" id="reloadBtn" class="layui-btn" data-type="reload" value="返回"></div>
+<a style="color:#2f4056;font-family:微软雅黑,sans-serif;font-size:20px;position:relative;top:30px;left:0">代码详情</a>
+<div id="returnbtn" onclick="history.go(-1);"><input type="submit" id="reloadBtn" class="layui-btn" data-type="reload" value="返回"></div>
 
-    <div class="code" th:text="${result.getCode()}" style="white-space: pre-wrap;position:relative;width:80%;left:100px" >
-        public class IndexController {
-
-        @RequestMapping({"/", "/index"})
-        public String index(Model model) {
-        model.addAttribute("msg", null);
-        if (!model.containsAttribute("username")) {
-        model.addAttribute("username", null);
-        }
-        return "/index";
-        }
-
-        @RequestMapping("/admin")
-        @ResponseBody
-        public String admin() {
-        return "admin";
-        }
-        }
-        public class IndexController {
-
-        @RequestMapping({"/", "/index"})
-        public String index(Model model) {
-        model.addAttribute("msg", null);
-        if (!model.containsAttribute("username")) {
-        model.addAttribute("username", null);
-        }
-        return "/index";
-        }
-
-        @RequestMapping("/admin")
-        @ResponseBody
-        public String admin() {
-        return "admin";
-        }
-        }
-    </div>
+<div class="code" th:text="${result.getCode()}" style="white-space: pre-wrap;position:relative;width:80%;left:100px">
+</div>
 <div class="copyright">
     <p>2022 &Code Search engine developed by Jichen Li, Lang Yuan and Xueting Sun,whose codes are in
         <a href="https://github.com/john9999911/cc_cs.git" target="_blank">GitHub </a></p>
