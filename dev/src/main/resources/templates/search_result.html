@@ -36,11 +36,14 @@
             <div class="link-top"></div>
             <div class="headLineBlowDiv">
                 <div class="headLeftDiv">
-                    选择
-                    <select name="searchNum">
-                        <option  th:each="i:${#numbers.sequence(1, 5)}" th:text="${i}" th:value="${i}" th:selected="${i==selectedNum}"></option>
-                    </select>
-                    条搜索结果
+                    <label>
+                        选择
+                        <select name="searchNum">
+                            <option th:each="i:${#numbers.sequence(1, 5)}" th:text="${i}" th:value="${i}"
+                                    th:selected="${i==selectedNum}"></option>
+                        </select>
+                        条搜索结果
+                    </label>
                 </div>
             </div>
 
@@ -56,17 +59,18 @@
 
                 <div class="mainDivMainInfoiv_HeadTextDiv ">
                     <div class="mainDivMainInfoiv_HeadTextDiv_TextBox cardInfoTitle findKey">
-                        [['可信度：' + ${result[1]}]]
+                        [['可信度：' + ${result.getSim()}]]
                     </div>
                 </div>
 
-                <div class="mainDivMainInfoiv_mainTextDiv  findKey" th:text="'(搜索结果)' + ${result[0]}">
-                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所
-                    第一篇文章主要讲解神经网络基础概念，同时讲解TensorFlow2.0的安装过程及基础用法，主要结合作者之前的博客、AI经验和相关视频介绍，后面随着深入会讲解具体的项目及应用。基础性文章，希望对您有所
+                <!--                test-->
+                <div class="mainDivMainInfoiv_mainTextDiv  findKey" style="white-space: pre-wrap"
+                     th:text="${result.getCode() + '\n this is a flag'}">
+                    <!--                <div class="mainDivMainInfoiv_mainTextDiv  findKey" style="white-space: pre-wrap" th:text="${result.getCode()}">-->
+
                 </div>
 
-                <div class="InfoDiv_Right_2 rightFlexFont">
-                    [['可信度：' + ${result[1]}]]
+                <div class="InfoDiv_Right_2 rightFlexFont" th:text="${'相似度：' + result.getSim()}">
                 </div>
             </div>
 

@@ -18,7 +18,7 @@ public class AdminController {
     public String addCode() {
         try {
             codeService.insertCodeByFile("D:\\ChenGe\\Personal\\工作区\\SRTP\\d.code\\DeepCom\\test_source.txt", "java");
-            return "succeed!";
+            return "succeeded!";
         } catch (Exception e) {
             e.printStackTrace();
             return "failed!";
