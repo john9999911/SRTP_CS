@@ -8,9 +8,11 @@
     <link href="../../static/css/styleforresult.css " rel="stylesheet"/>
 </head>
 <body>
-<i></i>
-<a style="color:blue;position:relative;left:650px;top:0px;font-size:25px;" th:text="${searchText}"></a>
-<a style="color:#2f4056;font-family:微软雅黑,sans-serif;font-size:20px;position:relative;top:30px;left:0">代码详情</a>
+<div style="color:blue;position:relative;width: 100%;top:0;alignment: center;font-size:25px;">
+    <i></i>
+    <p style="position:relative;left: 700px" th:text="${searchText}"></p>
+</div>
+<!--<a style="color:#2f4056;font-family:微软雅黑,sans-serif;font-size:20px;position:relative;top:30px;left:0">代码详情</a>-->
 <div id="returnbtn" onclick="history.go(-1);"><input type="submit" id="reloadBtn" class="layui-btn" data-type="reload"
                                                      value="返回"></div>
 

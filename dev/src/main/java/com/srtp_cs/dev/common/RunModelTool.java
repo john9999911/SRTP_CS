@@ -1,5 +1,7 @@
 package com.srtp_cs.dev.common;
 
+import org.springframework.aop.scope.ScopedProxyUtils;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +14,7 @@ public class RunModelTool {
     ArrayList<OneResult> rList = new ArrayList<>();
 
     public void run(String... exeArgs) {
+        rList.clear();
         try {
             Process process = Runtime.getRuntime().exec(exeArgs);
             final InputStream is1 = process.getInputStream();
@@ -22,8 +25,9 @@ public class RunModelTool {
                 OneResult result = new OneResult("", 0);
                 int flag = 0;
                 try {
+                    while (!(line = br.readLine()).equals("******"));
+
                     while ((line = br.readLine()) != null) {
-//                        System.out.println(line);
                         if (flag == 0) {
                             result.code = line;
                             flag = 1;
@@ -34,6 +38,7 @@ public class RunModelTool {
                             result = new OneResult("", 0);
                         }
                     }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -48,7 +53,6 @@ public class RunModelTool {
     }
 
     public ArrayList<OneResult> runModel(String query, int num) {
-        rList.clear();
         String[] exeArgs = {"powershell.exe", "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\venv\\Scripts\\python.exe", "D:\\ChenGe\\Codefiles\\srtp\\Hu_TabCS\\model_code\\my_model.py", query, String.valueOf(num)};
         run(exeArgs);
         return rList;

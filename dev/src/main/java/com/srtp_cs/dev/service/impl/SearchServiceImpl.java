@@ -17,7 +17,8 @@ public class SearchServiceImpl implements SearchService {
         RunModelTool runModelTool = new RunModelTool();
         result = runModelTool.runModel(keyword, num);
         for(OneResult oneResult : result){
-            String tmpStr = "public class Solution{" + oneResult.getCode() + "}";
+            String tmpStr = "class Solution { \n" + oneResult.getCode() + " }";
+            System.out.println(tmpStr);
 
             try {
                 oneResult.setCode(formatTool.format(tmpStr));

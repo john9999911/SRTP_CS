@@ -39,7 +39,7 @@
                     <label>
                         选择
                         <select name="searchNum">
-                            <option th:each="i:${#numbers.sequence(1, 5)}" th:text="${i}" th:value="${i}"
+                            <option th:each="i:${#numbers.sequence(1, 7)}" th:text="${i}" th:value="${i}"
                                     th:selected="${i==selectedNum}"></option>
                         </select>
                         条搜索结果
